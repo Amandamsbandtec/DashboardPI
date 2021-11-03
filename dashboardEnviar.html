@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Da acesso a lib através do cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="header">
+      <div class="container">
+        <h1><span class="highlight">Projeto</span> IoT Revolucionário</h1>
+      </div>
+    </div>
+
+   
+      <!-- Gráficos -->
+      <div class="graph">
+        <canvas id="myChart" style="width: 100%; height: 100%"></canvas>
+      </div>
+
+      <div class="graph">
+        <canvas id="myChart2" style="width: 100%; height: 100%"></canvas>
+
+      </div>
+
+      <div class="graph">
+        <canvas id="myChart3" style="width: 100%; height: 100%"></canvas>
+
+      </div>
+    </div>
+  </body>
+
+</html>
+
+<script>
+  // Inicia uma variável do tipo constante (não pode ser reatribuida)
+  const config = { 
+    type: "line", // tipo do gráfico
+    data: { // objeto que vai conter os dados do gráfico
+      labels: ["Norte", "Nordeste", "Sudeste", "Sudeste", "Sul", "Centro-Oeste"], // labels (rótulos) que serão identificados os nossos dados 
+      datasets: [ // datasets (conjunto de dados)
+        {
+          label: "Média de salário por região", // irá conter o rótulo principal do nosso gráfico
+          data: [1.711,00, 1.539,00, 2.585,00, 2.499,00, 2.498,00], // os dados referentes aqueles rótulos
+          backgroundColor: "#F0432F", // cor das "bolinhas" do gráfico
+          borderColor: "#4A5452" // cor da "linha" do gráfico
+        }
+      ]
+    },
+    options: {
+      maintainAspectRatio: false 
+      /* maintainAspectRatio (manter relação de aspecto) 
+        caso true: ele "obdece" a altura e largura que colocamos
+        caso false: ele não "obdece" a altura e largura que colocamos e se ajusta ao componente pai
+      */
+    }
+  }
+
+  var myChartLine = new Chart(document.getElementById("myChart"), config);
+  
+  
+
+  const config2 = { 
+    type: "bar", // tipo do gráfico
+    data: { // objeto que vai conter os dados do gráfico
+      labels: ["2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021"], // labels (rótulos) que serão identificados os nossos dados 
+      datasets: [ // datasets (conjunto de dados)
+        {
+          label: "Salário mínimo", // irá conter o rótulo principal do nosso gráfico
+          data: [540,00, 622,00, 678,00, 724,00, 788,00, 880,00, 937,00, 954,00, 998,00, 1.045,00, 1.100,00], // os dados referentes aqueles rótulos
+          backgroundColor: "#681D96", // cor das "bolinhas" do gráfico
+          borderColor: "#4A5452" // cor da "linha" do gráfico
+        }
+      ]
+    },
+    options: {
+      maintainAspectRatio: false 
+      /* maintainAspectRatio (manter relação de aspecto) 
+        caso true: ele "obdece" a altura e largura que colocamos
+        caso false: ele não "obdece" a altura e largura que colocamos e se ajusta ao componente pai
+      */
+    }
+  }
+
+  var myChartLine = new Chart(document.getElementById("myChart2"), config2); 
+  /* aqui obrigatoriamente tem que colocar new Chart() para criar um novo chart 
+  e passar dentro dos (parênteses) o elemento canvas que você quer mandar e 
+  separado pela virgula o que você quer mandar, no nosso caso a config que fizemos 
+  */
+
+  const config3 = { 
+    type: "pie", // tipo do gráfico
+    data: { // objeto que vai conter os dados do gráfico
+      labels: ["Brasil(total)", "Norte", "Nordeste", "Sudeste", "Sul", "Centro-oeste"], // labels (rótulos) que serão identificados os nossos dados 
+      datasets: [ // datasets (conjunto de dados)
+        {
+          label: "Desemprego por região", // irá conter o rótulo principal do nosso gráfico
+          data: [11, 10.6, 13.6, 11.4, 6.8, 9.3], // os dados referentes aqueles rótulos
+          backgroundColor: ["#BD968E","#581845", "#E0765F", "#681D96", "#A39F9F", "#EA4436"],// cor das "bolinhas" do gráfico
+          borderColor: "#4A5452" // cor da "linha" do gráfico
+        }
+      ]
+    },
+    options: {
+      maintainAspectRatio: false 
+      /* maintainAspectRatio (manter relação de aspecto) 
+        caso true: ele "obdece" a altura e largura que colocamos
+        caso false: ele não "obdece" a altura e largura que colocamos e se ajusta ao componente pai
+      */
+    }
+  }
+
+  var myChartLine = new Chart(document.getElementById("myChart3"), config3); 
+</script>
